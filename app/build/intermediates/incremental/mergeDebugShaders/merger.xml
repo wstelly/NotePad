@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\project\AndroidStudioProject\NotePad\app\src\main\shaders"/></dataSet><dataSet config="debug"><source path="D:\project\AndroidStudioProject\NotePad\app\src\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\AndroidDevelop\Work\NotePad\app\src\main\shaders"/></dataSet><dataSet config="debug"><source path="D:\AndroidDevelop\Work\NotePad\app\src\debug\shaders"/></dataSet></merger>
