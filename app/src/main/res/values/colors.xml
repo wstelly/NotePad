@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--纯白-->
+    <color name="white">#ffffff</color>
+    <!--主题颜色-->
+    <color name="color_theme">#58E3F2</color>
+    <!--背景颜色-->
+    <color name="grey_bg">#f0f0f0</color>
+    <!--字体深色-->
+    <color name="grey_font">#5a5959</color>
+    <!--字体浅色-->
+    <color name="grey_font_2">#888</color>
+    <!--使用的分界线-->
+    <color name="grey_line">#E3E0E0</color>
+
+    <!--测试背景使用颜色-->
+    <color name="orange">#fe9844</color>
+    <color name="transparent">#dd232323</color>
+    <color name="head_bg">#3bf50a</color>
+
+</resources>

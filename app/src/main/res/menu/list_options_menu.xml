@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <!--  This is our one standard application action (creating a new note). -->
+
+    <item android:id="@+id/search" android:title="search"
+        android:actionViewClass="android.widget.SearchView"
+        android:alphabeticShortcut='a'
+        android:showAsAction="always"
+        ></item>
+
+    <item android:id="@+id/menu_add"
+          android:icon="@drawable/ic_menu_compose"
+          android:title="@string/menu_add"
+          android:alphabeticShortcut='a'
+          android:showAsAction="always" />
+
+    <item android:id="@+id/menu_paste"
+          android:icon="@drawable/ic_menu_compose"
+          android:title="@string/menu_paste"
+          android:alphabeticShortcut='p' />
+    <item android:id="@+id/export_note"
+        android:icon="@drawable/ic_menu_compose"
+        android:title="Export"
+        android:alphabeticShortcut='p' />
+
+    <item android:id="@+id/notify_note"
+          android:icon="@drawable/ic_menu_compose"
+          android:title="Notify"
+          android:alphabeticShortcut='p' />
+    <item android:id="@+id/work_note"
+          android:icon="@drawable/ic_menu_compose"
+          android:title="Work"
+          android:alphabeticShortcut='p' />
+
+
+</menu>
