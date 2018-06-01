@@ -17,13 +17,9 @@
 
 ![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img5.png)
 
-### 课堂笔记保存
+### 课堂笔记保存           读书笔记保存
 
-![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img16.png)
-
-### 读书笔记保存
-
-![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img17.png)
+![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img16.png)![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img17.png)
 
 ### 待办事项保存
 
@@ -36,7 +32,6 @@
 ## 笔记分类展示界面
 ### 课堂笔记
 ![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img12.png)
-
 
 ### 读书笔记
 ![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img13.png)
