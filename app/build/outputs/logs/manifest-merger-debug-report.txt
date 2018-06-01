@@ -1,7 +1,7 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:21:1-128:12
-INJECTED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:21:1-128:12
+ADDED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:21:1-129:12
+INJECTED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:21:1-129:12
 MERGED from [com.github.huzhenjie:ImageSelector:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\ImageSelector-1.0.3.aar\5f25e63ea482558626ce83c0733d16cc\AndroidManifest.xml:2:1-22:12
 MERGED from [com.android.support:cardview-v7:23.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-23.1.0.aar\725a5c57b82de277dbbb7340686135a8\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-23.4.0.aar\cc468950b431a1ff02acde7925d6c397\AndroidManifest.xml:17:1-27:12
@@ -9,7 +9,7 @@ MERGED from [com.android.support:recyclerview-v7:23.2.1] C:\Users\Administrator\
 MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-23.4.0.aar\76ddcdb870580e5ec2fda7153b6c5ccb\AndroidManifest.xml:2:1-9:12
 MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-23.4.0.aar\a8c6c93f9b9750b91089d7b42b665b8c\AndroidManifest.xml:2:1-9:12
 MERGED from [com.android.support:support-v4:23.4.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-23.4.0.aar\6e0c80d543b2f8c607566140495bd9ae\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:21:1-128:12
+INJECTED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:21:1-129:12
 	package
 		ADDED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:22:5-42
 		INJECTED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml
@@ -47,7 +47,7 @@ INJECTED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:24
 		INJECTED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml
 		INJECTED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml
 application
-ADDED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:26:5-126:19
+ADDED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:26:5-127:19
 MERGED from [com.github.huzhenjie:ImageSelector:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\ImageSelector-1.0.3.aar\5f25e63ea482558626ce83c0733d16cc\AndroidManifest.xml:11:5-20:19
 MERGED from [com.github.huzhenjie:ImageSelector:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\ImageSelector-1.0.3.aar\5f25e63ea482558626ce83c0733d16cc\AndroidManifest.xml:11:5-20:19
 MERGED from [com.android.support:cardview-v7:23.1.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\cardview-v7-23.1.0.aar\725a5c57b82de277dbbb7340686135a8\AndroidManifest.xml:22:5-20
@@ -192,6 +192,10 @@ action#android.intent.action.CREATE_LIVE_FOLDER
 ADDED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:121:17-83
 	android:name
 		ADDED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:121:25-80
+activity#com.example.android.notepad.ShowNoteActivity
+ADDED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:125:9-63
+	android:name
+		ADDED from D:\AndroidDevelop\Work\NotePad\app\src\main\AndroidManifest.xml:125:19-51
 activity#com.scrat.app.selectorlibrary.activity.ImageSelectorActivity
 ADDED from [com.github.huzhenjie:ImageSelector:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\ImageSelector-1.0.3.aar\5f25e63ea482558626ce83c0733d16cc\AndroidManifest.xml:12:9-15:66
 	android:screenOrientation

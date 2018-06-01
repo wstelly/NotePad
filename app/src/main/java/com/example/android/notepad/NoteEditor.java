@@ -17,6 +17,8 @@
 package com.example.android.notepad;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ComponentName;
@@ -24,6 +26,7 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Canvas;
@@ -33,12 +36,18 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 
+import com.alibaba.fastjson.JSON;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This Activity handles "editing" a note, where editing is responding to
@@ -54,6 +63,8 @@ import java.text.SimpleDateFormat;
 public class NoteEditor extends Activity {
     // For logging and debugging purposes
     private static final String TAG = "NoteEditor";
+
+    private AlertDialog backgroundDialog;
 
     /*
      * Creates a projection that returns the note ID and the note contents.
@@ -239,6 +250,21 @@ public class NoteEditor extends Activity {
         if (savedInstanceState != null) {
             mOriginalContent = savedInstanceState.getString(ORIGINAL_CONTENT);
         }
+
+        initDialog();
+
+    }
+
+
+    private void initDialog(){
+
+        View view= LayoutInflater.from(this).inflate(R.layout.dialog_set_bg,null);
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setView(view);
+        backgroundDialog=builder.create();
+
+
+        // backgroundDialog
     }
 
     /**
@@ -370,9 +396,9 @@ public class NoteEditor extends Activity {
                  */
             } else if (mState == STATE_EDIT) {
                 // Creates a map to contain the new values for the columns
-                updateNote(text, null);
+                updateNote(text, null,"");
             } else if (mState == STATE_INSERT) {
-                updateNote(text, text);
+                updateNote(text, text,"");
                 mState = STATE_EDIT;
             }
         }
@@ -439,15 +465,29 @@ public class NoteEditor extends Activity {
         switch (item.getItemId()) {
             case R.id.menu_save:
                 String text = mText.getText().toString();
-                updateNote(text, null);
+                updateNote(text, null,"");
                 finish();
                 break;
+            case R.id.save_as_note:
+                String text1 = mText.getText().toString();
+                updateNote(text1, null,"save_as_note");
+                finish();
+                break;
+            case R.id.save_as_schedule:
+                String text2 = mText.getText().toString();
+                updateNote(text2, null,"save_as_schedule");
+                finish();
+                break;
+
             case R.id.menu_delete:
                 deleteNote();
                 finish();
                 break;
             case R.id.menu_revert:
                 cancelNote();
+                break;
+            case R.id.menu_change_bg:
+                backgroundDialog.show();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -516,7 +556,7 @@ public class NoteEditor extends Activity {
             }
 
             // Updates the current note with the retrieved title and text.
-            updateNote(text, title);
+            updateNote(text, title,"");
         }
     }
 //END_INCLUDE(paste)
@@ -527,12 +567,19 @@ public class NoteEditor extends Activity {
      * @param text  The new note contents to use.
      * @param title The new note title to use
      */
-    private final void updateNote(String text, String title) {
+    private final void updateNote(String text, String title,String type) {
 
         // Sets up a map to contain values to be updated in the provider.
         ContentValues values = new ContentValues();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         values.put(NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, dateFormat.format(System.currentTimeMillis()));
+
+        NoteBean noteBean=new NoteBean();
+        noteBean.setNote(text);
+        noteBean.setTitle(title);
+        noteBean.setTime( dateFormat.format(System.currentTimeMillis()));
+        noteBean.setType(type);
+        saveNote(noteBean);
 
         // If the action is to insert a new note, this creates an initial title for it.
         if (mState == STATE_INSERT) {
@@ -620,4 +667,21 @@ public class NoteEditor extends Activity {
             mText.setText("");
         }
     }
+    /**
+     * 用于保存笔记至SharedPreferenced中
+     * */
+    private void saveNote(NoteBean noteBean){
+        SharedPreferences sharedPreferences=this.getSharedPreferences("note",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        String noteHistory=sharedPreferences.getString("note","[{}]");
+        List<NoteBean> noteBeans=new ArrayList<>();
+           noteBeans.addAll(JSON.parseArray(noteHistory,NoteBean.class));
+        noteBeans.add(noteBean);
+
+        String jsonString= JSON.toJSONString(noteBeans);
+
+        editor.putString("note",jsonString);
+        editor.commit();
+    }
+
 }

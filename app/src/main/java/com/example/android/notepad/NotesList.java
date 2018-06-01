@@ -307,6 +307,10 @@ public class NotesList extends ListActivity implements SearchView.OnQueryTextLis
 
                 Toast.makeText(this,"导出成功",Toast.LENGTH_LONG).show();
                 return true;
+            case R.id.note_type:
+                Intent intent=new Intent(this,ShowNoteActivity.class);
+                startActivity(intent);
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

@@ -5,11 +5,21 @@
           android:alphabeticShortcut='s'
           android:title="@string/menu_save"
            />
+    <item android:id="@+id/save_as_schedule"
+        android:title="save_as_schedule"
+        />
+    <item android:id="@+id/save_as_note"
+        android:title="save_as_note"
+        />
+
     <item android:id="@+id/menu_revert"
           android:icon="@drawable/ic_menu_revert"
           android:title="@string/menu_revert" />
     <item android:id="@+id/menu_delete"
           android:icon="@drawable/ic_menu_delete"
           android:title="@string/menu_delete"
+        />
+    <item android:id="@+id/menu_change_bg"
+        android:title="@string/menu_change_bg"
         />
 </menu>

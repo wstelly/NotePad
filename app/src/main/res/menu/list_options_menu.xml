@@ -24,14 +24,11 @@
         android:title="Export"
         android:alphabeticShortcut='p' />
 
-    <item android:id="@+id/notify_note"
+    <item android:id="@+id/note_type"
           android:icon="@drawable/ic_menu_compose"
-          android:title="Notify"
+          android:title="type"
           android:alphabeticShortcut='p' />
-    <item android:id="@+id/work_note"
-          android:icon="@drawable/ic_menu_compose"
-          android:title="Work"
-          android:alphabeticShortcut='p' />
+
 
 
 </menu>

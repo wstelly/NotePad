@@ -22,4 +22,9 @@
     <color name="transparent">#dd232323</color>
     <color name="head_bg">#3bf50a</color>
 
+    <color name="green">#23BF70</color>
+    <color name="blue">#77CEEE</color>
+    <color name="purple">#B09EFF</color>
+    <color name="mblue">#4c85ff</color>
+
 </resources>
