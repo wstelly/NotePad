@@ -10,15 +10,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+        android:textSize="18sp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
         android:text="请选择背景颜色" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        >
 
         <TextView
+            android:id="@+id/bg_yellow"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -28,6 +34,7 @@
             android:text="■" />
 
         <TextView
+            android:id="@+id/bg_green"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -37,6 +44,7 @@
             android:text="■" />
 
         <TextView
+            android:id="@+id/bg_blue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -26,9 +26,9 @@
 
     <item android:id="@+id/note_type"
           android:icon="@drawable/ic_menu_compose"
-          android:title="type"
+          android:title="Note Type"
           android:alphabeticShortcut='p' />
-
-
-
+    <item android:id="@+id/note_plan"
+        android:title="Plan"
+        android:alphabeticShortcut='p' />
 </menu>

@@ -6,10 +6,11 @@ package com.example.android.notepad;
  */
 public class NoteBean {
 
-    private String title;
-    private String note;
-    private String time;
-    private String type;
+    private String title="";
+    private String note="";
+    private String time="";
+    private String type="";
+    private String color="";
 
     public String getTitle() {
         return title;
@@ -41,5 +42,13 @@ public class NoteBean {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

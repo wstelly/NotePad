@@ -312,6 +312,11 @@ public class NotesList extends ListActivity implements SearchView.OnQueryTextLis
                 startActivity(intent);
                 return true;
 
+            case R.id.note_plan:
+                Intent intent1=new Intent(this,ShowPlanActivity.class);
+                startActivity(intent1);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

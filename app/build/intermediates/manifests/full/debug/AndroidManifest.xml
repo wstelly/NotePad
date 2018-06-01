@@ -149,6 +149,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.android.notepad.ShowNoteActivity" />
+        <activity android:name="com.example.android.notepad.ShowPlanActivity" />
         <activity
             android:name="com.scrat.app.selectorlibrary.activity.ImageSelectorActivity"
             android:screenOrientation="portrait"

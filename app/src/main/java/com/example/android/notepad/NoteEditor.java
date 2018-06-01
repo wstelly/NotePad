@@ -42,8 +42,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.example.android.notepad.adapter.NoteAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -65,6 +68,8 @@ public class NoteEditor extends Activity {
     private static final String TAG = "NoteEditor";
 
     private AlertDialog backgroundDialog;
+
+    private String backGroundColor;
 
     /*
      * Creates a projection that returns the note ID and the note contents.
@@ -242,6 +247,25 @@ public class NoteEditor extends Activity {
 
         // Gets a handle to the EditText in the the layout.
         mText = (EditText) findViewById(R.id.note);
+        SharedPreferences sharedPreferences=getSharedPreferences("bg_color",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        String color=sharedPreferences.getString("color","yellow");
+        backGroundColor=color;
+        switch (color){
+            case "yellow":
+                mText.setBackgroundColor(getResources().getColor(R.color.orange));
+                break;
+            case "green":
+                mText.setBackgroundColor(getResources().getColor(R.color.green));
+                break;
+            case "blue":
+                mText.setBackgroundColor(getResources().getColor(R.color.blue));
+                break;
+                default:
+                    break;
+
+        }
+
 
         /*
          * If this Activity had stopped previously, its state was written the ORIGINAL_CONTENT
@@ -260,6 +284,47 @@ public class NoteEditor extends Activity {
 
         View view= LayoutInflater.from(this).inflate(R.layout.dialog_set_bg,null);
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        TextView yellowTv,greenTv,blueTv;
+        yellowTv=(TextView)view.findViewById(R.id.bg_yellow);
+        greenTv=(TextView)view.findViewById(R.id.bg_green);
+        blueTv=(TextView)view.findViewById(R.id.bg_blue);
+        yellowTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(NoteEditor.this,"黄色",Toast.LENGTH_LONG).show();
+                SharedPreferences sharedPreferences=getSharedPreferences("bg_color",MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("color","yellow");
+                editor.commit();
+                mText.setBackgroundColor(getResources().getColor(R.color.orange));
+                backGroundColor="yellow";
+            }
+        });
+        greenTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(NoteEditor.this,"绿色",Toast.LENGTH_LONG).show();
+                SharedPreferences sharedPreferences=getSharedPreferences("bg_color",MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("color","green");
+                editor.commit();
+                mText.setBackgroundColor(getResources().getColor(R.color.green));
+                backGroundColor="green";
+            }
+        });
+        blueTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(NoteEditor.this,"蓝色",Toast.LENGTH_LONG).show();
+                SharedPreferences sharedPreferences=getSharedPreferences("bg_color",MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("color","blue");
+                editor.commit();
+                mText.setBackgroundColor(getResources().getColor(R.color.blue));
+                backGroundColor="blue";
+            }
+        });
+
         builder.setView(view);
         backgroundDialog=builder.create();
 
@@ -442,11 +507,7 @@ public class NoteEditor extends Activity {
         int colNoteIndex = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_NOTE);
         String savedNote = mCursor.getString(colNoteIndex);
         String currentNote = mText.getText().toString();
-        if (savedNote.equals(currentNote)) {
-            menu.findItem(R.id.menu_revert).setVisible(false);
-        } else {
-            menu.findItem(R.id.menu_revert).setVisible(true);
-        }
+
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -463,11 +524,11 @@ public class NoteEditor extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle all of the possible menu actions.
         switch (item.getItemId()) {
-            case R.id.menu_save:
-                String text = mText.getText().toString();
-                updateNote(text, null,"");
-                finish();
-                break;
+//            case R.id.menu_save:
+//                String text = mText.getText().toString();
+//                updateNote(text, null,"");
+//                finish();
+//                break;
             case R.id.save_as_note:
                 String text1 = mText.getText().toString();
                 updateNote(text1, null,"save_as_note");
@@ -478,13 +539,14 @@ public class NoteEditor extends Activity {
                 updateNote(text2, null,"save_as_schedule");
                 finish();
                 break;
-
+            case R.id.save_as_plan:
+                String text3 = mText.getText().toString();
+                updateNote(text3, null,"save_as_plan");
+                finish();
+                break;
             case R.id.menu_delete:
                 deleteNote();
                 finish();
-                break;
-            case R.id.menu_revert:
-                cancelNote();
                 break;
             case R.id.menu_change_bg:
                 backgroundDialog.show();
@@ -579,6 +641,7 @@ public class NoteEditor extends Activity {
         noteBean.setTitle(title);
         noteBean.setTime( dateFormat.format(System.currentTimeMillis()));
         noteBean.setType(type);
+        noteBean.setColor(backGroundColor);
         saveNote(noteBean);
 
         // If the action is to insert a new note, this creates an initial title for it.
@@ -667,19 +730,15 @@ public class NoteEditor extends Activity {
             mText.setText("");
         }
     }
-    /**
-     * 用于保存笔记至SharedPreferenced中
-     * */
+
     private void saveNote(NoteBean noteBean){
         SharedPreferences sharedPreferences=this.getSharedPreferences("note",MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
         String noteHistory=sharedPreferences.getString("note","[{}]");
         List<NoteBean> noteBeans=new ArrayList<>();
-           noteBeans.addAll(JSON.parseArray(noteHistory,NoteBean.class));
+        noteBeans.addAll(JSON.parseArray(noteHistory,NoteBean.class));
         noteBeans.add(noteBean);
-
         String jsonString= JSON.toJSONString(noteBeans);
-
         editor.putString("note",jsonString);
         editor.commit();
     }

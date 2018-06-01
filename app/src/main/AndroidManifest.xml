@@ -124,6 +124,8 @@
         </activity>
         <activity android:name=".ShowNoteActivity"></activity>
 
+        <activity android:name=".ShowPlanActivity"/>
+
     </application>
 
 </manifest>
