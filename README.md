@@ -18,6 +18,8 @@
 
 ## 笔记编辑界面
 
+笔记编辑界面将原有的布局进行调整，同时可以为笔记选择不同的背景颜色。
+
 ![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img5.png)
 
 ### 课堂笔记保存           读书笔记保存
@@ -34,7 +36,10 @@
 
 ## 笔记背景颜色选择界面
 
+在进行笔记编辑的时候会使用默认的背景颜色“黄色”，当用户对笔记背景颜色进行修改后，修改后的背景颜色将会以SharesdPreferenced的方式进行保存，当用户再次进入笔记编辑时，笔记的背景颜色将会显示为上一次选择的背景颜色。
+
 笔记背景颜色选择功能，使用自定义Dialog，在自定义Dialog中展示不同的颜色，并对展示的颜色进行设置ClickListener，当某一颜色被点击后，当前笔记的背景颜色将会改变成所选择的笔记的颜色。
+
 
 ![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img6.png)![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img7.png)![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img8.png)![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img9.png)![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img10.png)
 
@@ -53,7 +58,7 @@
 
 ## 待办功能(Plan)
 
-待办功能与课堂笔记以及读书笔记展示的形式相同，但其布局进行了调整，不经会显示待办事项的编辑时间，还会显示具体的内容。
+待办功能与课堂笔记以及读书笔记展示的形式相同，但其布局进行了调整，不仅显示待办事项的编辑时间，还会显示具体的内容。
 
 ![笔记编辑界面](https://github.com/wstelly/NotePad/blob/master/img14.png)
 
